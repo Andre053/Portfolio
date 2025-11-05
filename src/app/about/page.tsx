@@ -49,6 +49,11 @@ export default function About() {
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
     },
+    {
+      title: about.interests.title,
+      display: about.interests.display,
+      items: about.interests.skills.map((skill) => skill.title),
+    },
   ];
   return (
     <Column maxWidth="m">
@@ -289,7 +294,7 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Column fillWidth gap="l" marginBottom="40">
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
@@ -325,6 +330,40 @@ export default function About() {
                               src={image.src}
                             />
                           </Row>
+                        ))}
+                      </Row>
+                    )}
+                  </Column>
+                ))}
+              </Column>
+            </>
+          )}
+
+          {about.interests.display && (
+            <>
+              <Heading
+                as="h2"
+                id={about.interests.title}
+                variant="display-strong-s"
+                marginBottom="40"
+              >
+                {about.interests.title}
+              </Heading>
+              <Column fillWidth gap="l">
+                {about.interests.skills.map((skill, index) => (
+                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                    <Text id={skill.title} variant="heading-strong-l">
+                      {skill.title}
+                    </Text>
+                    <Text variant="body-default-m" onBackground="neutral-weak">
+                      {skill.description}
+                    </Text>
+                    {skill.tags && skill.tags.length > 0 && (
+                      <Row wrap gap="8" paddingTop="8">
+                        {skill.tags.map((tag, tagIndex) => (
+                          <Tag key={`${skill.title}-${tagIndex}`} size="l">
+                            {tag.name}
+                          </Tag>
                         ))}
                       </Row>
                     )}

@@ -207,6 +207,24 @@ export interface About extends BasePageConfig {
       }>;
     }>;
   };
+  /** Academic interests section */
+  interests: {
+    /** Whether to display technical skills section */
+    display: boolean;
+    /** Title for the technical skills section */
+    title: string;
+    /** List of technical skills */
+    skills: Array<{
+      /** Skill title */
+      title: string;
+      /** Skill description */
+      description?: React.ReactNode;
+      /** Skill tags */
+      tags?: Array<{
+        name: string;
+      }>;
+    }>;
+  };
 }
 
 /**

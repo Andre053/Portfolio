@@ -2,18 +2,18 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "André",
+  lastName: "de Biasi",
+  name: `André de Biasi`,
+  role: "Data Scientist and Software Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "andre.debiasi053@gmail.com",
+  location: "America/Toronto", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English",], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: <>My weekly newsletter about creativity and engineering</>,
 };
@@ -24,17 +24,12 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/Andre053",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/andre-de-biasi/",
   },
   {
     name: "Email",
@@ -49,7 +44,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Using data to better understand the real world</>,
   featured: {
     display: true,
     title: (
@@ -65,14 +60,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Selene, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm André, currently a IT Technician at The Canadian Press, where I support users and write software
+      <br /> After hours, I build my own projects.
     </>
   ),
 };
@@ -90,7 +79,7 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -98,9 +87,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        André is a Toronto-based technical professional who is passionate about using data to understand and improve society. 
+        He has worked as a software engineer, cybersecurity analyst, systems administrator, and data analyst. Rooted in an
+        interest in technology and politics, his interests lie in using technical skills to understand and advocate for solutions
+        that champion the public good. 
       </>
     ),
   },
@@ -109,41 +99,84 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "The Canadian Press",
+        timeframe: "SEP 2024 - PRESENT",
+        role: "IT Technician",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Daily Windows, Mac, and Cloud application support for employees and clients across Canada.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Active Directory, Microsoft Entra, and Microsoft 365 administration for over 200 employees and clients. 
+          </>,
+          <>
+            Utilizing PowerShell, Python, and Excel to automate or accelerate data management and analysis whenever possible. 
+          </>,
+          <>
+            Developed a Python CLI program to export all Zoom meetings between a certain date using the Zoom API, saving hours of manual work. 
+          </>,
+          <>
+            Deployed a PowerShell script to automate compression of a legacy Microsoft Access database, saving over 2 hours of time each month. 
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "BALANCED+",
+        timeframe: "JUN 2023 - AUG 2024",
+        role: "Cybersecurity Analyst",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Monitored over 10 companies networks with FortiSIEM, FortiSOAR, and FortiAnalyzer, providing monthly security reports.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Developed FortiSOAR playbooks to secure the network or send notifications when potential security threats were found. 
+          </>,
+          <>
+            Used SQL queries to create in-depth reports for clients using network and security data; Excel or FortiAnalyzer for report generation.
+          </>,
+          <>
+            Created a Python program to automatically backup FortiGate configuration files for over 50 devices across 20 companies.  
+          </>,
+          <>
+            Provided vulnerability and network scans with Tenable Nessus and SolarWinds, creating reports and presenting findings to stakeholders. 
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "JALI Research",
+        timeframe: "JUL 2022 - MAY 2023",
+        role: "Systems Administrator",
+        achievements: [
+          <>
+            Supported around 20 employees and the company with all IT-related needs.
+          </>,
+          <>
+            Administered Microsoft Entra, Microsoft 365, and Intune.
+          </>,
+          <>
+            Designed, installed, and administered the office network.
+          </>,
+          <>
+            Developed documentation and IT policies for use by employees and management. 
+          </>
+        ],
+        images: [],
+      },
+      {
+        company: "Ontario One Call",
+        timeframe: "NOV 2021 - JUL 2022",
+        role: "Data Analyst / Software Developer",
+        achievements: [
+          <>
+            Led development of a C# application for implementing a call centre routing menu. 
+          </>,
+          <>
+            Automate Excel daily report generation with Python, saving 15 minutes each day. 
+          </>,
+          <>
+            Created in-depth reports for clients using Excel, SQL, and Microsoft Access.
           </>,
         ],
         images: [],
@@ -151,79 +184,176 @@ const about: About = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Toronto Metropolitan University",
+        description: <>Certificate in Public Administration and Leadership (in progress).</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Brock University",
+        description: <>Bachelor of Science (Honours). Major in Mathematics and Statistics, Concentration in Statistics, and Minor in Economics.</>,
+      },
+      {
+        name: "Centre for Law and Democracy",
+        description: <>Certificate course in international human rights law and freedom of expression.</>,
+      },
+      {
+        name: "CompTIA",
+        description: <>Certified with CompTIA A+, Network+, and Security+.</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true, 
+    title: "Tools",
     skills: [
       {
-        title: "Figma",
+        title: "Data Science",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Preparing and analyzing data with Python and R. Creating dashboards in Tableau. Handling advanced queries and database administration with SQL.</>
         ),
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
+            name: "Python",
+          },
+          {
+            name: "R",
+          },
+          {
+            name: "SQL",
+          },
+          {
+            name: "Tableau",
+          },
+          {
+            name: "Excel",
+          },
+          {
+            name: "QGIS",
           },
         ],
         // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "Software Development",
+        description: (
+          <>Building next gen apps with Next.js, Python, and PostgreSQL. Developing automation with Python, Bash, and PowerShell.</>
+        ),
+        tags: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "TypeScript",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Next.js",
+          },
+          {
+            name: "Python",
+          },
+          {
+            name: "SQL",
+          },
+          {
+            name: "Bash",
+          },
+          {
+            name: "Linux",
+          },
+          {
+            name: "Docker",
+          },
+          {
+            name: "Go",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "System, Network, and Cloud Administration",
+        description: (
+          <>Setting up and running IT architectures.</>
+        ),
+        tags: [
+          
+          {
+            name: "AWS",
+          },
+          {
+            name: "Azure",
+          },
+          {
+            name: "Microsoft Entra",
+          },
+          {
+            name: "Active Directory",
+          },
+          {
+            name: "Docker",
+          },
+          {
+            name: "GitHub Actions",
+          },
+          {
+            name: "Jenkins",
+          },
+          {
+            name: "Fortinet",
+          },
+          {
+            name: "Cisco",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      }, 
+    ],
+  },
+  interests: {
+    display: true, // set to false to hide this section
+    title: "Academic Skills",
+    skills: [
+      {
+        title: "Data Science and Statistics",
+        description: (
+          <>Preparing and analyzing data with Python and R. Creating dashboards in Tableau. Handling advanced queries and database administration with SQL.</>
+        ),
+        tags: [
+          {
+            name: "Exploratory data analysis (EDA)",
+          },
+          {
+            name: "Spatial analysis",
+          },
+          {
+            name: "Machine learning",
+          },
+          {
+            name: "Hypothesis testing",
+          },
+          {
+            name: "Confidence intervals",
           },
         ],
       },
       {
-        title: "Next.js",
+        title: "Policy Analysis and Research",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>Preparing and analyzing data with Python and R. Creating dashboards in Tableau. Handling advanced queries and database administration with SQL.</>
         ),
         tags: [
           {
-            name: "JavaScript",
-            icon: "javascript",
+            name: "Quantitative / qualitative analysis",
           },
           {
-            name: "Next.js",
-            icon: "nextjs",
+            name: "Logic models",
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "Survey design",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },  
+      },
     ],
   },
 };
@@ -231,7 +361,7 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
+  title: "Writing...",
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
@@ -241,7 +371,7 @@ const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  description: `My projects ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
@@ -255,44 +385,14 @@ const gallery: Gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
+      src: "/images/gallery/IMG_1400.jpg",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
+      src: "/images/gallery/IMG_1425.jpg",
       alt: "image",
       orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
     },
   ],
 };

@@ -127,11 +127,6 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             <CustomMDX source={post.content} />
           </Column>
           
-          <ShareSection 
-            title={post.metadata.title} 
-            url={`${baseURL}${blog.path}/${post.slug}`} 
-          />
-
           <Column fillWidth gap="40" horizontal="center" marginTop="40">
             <Line maxWidth="40" />
             <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
