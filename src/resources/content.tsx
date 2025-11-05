@@ -60,8 +60,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm André, currently a IT Technician at The Canadian Press, where I support users and write software
-      <br /> After hours, I build my own projects.
+      I'm André, I currently work as an IT Technician at The Canadian Press where I support users with technical issues and write software.
+      <br /><br />After hours, I study data science, public policy, and politics while building my own projects.
     </>
   ),
 };
@@ -327,6 +327,9 @@ const about: About = {
             name: "Exploratory data analysis (EDA)",
           },
           {
+            name: "Data pipelines",
+          },
+          {
             name: "Spatial analysis",
           },
           {
@@ -354,6 +357,29 @@ const about: About = {
           },
           {
             name: "Survey design",
+          },
+        ],
+      },
+      {
+        title: "IT Administration and Cybersecurity",
+        description: (
+          <>Preparing and analyzing data with Python and R. Creating dashboards in Tableau. Handling advanced queries and database administration with SQL.</>
+        ),
+        tags: [
+          {
+            name: "Database administration",
+          },
+          {
+            name: "Network / cloud administration",
+          },
+          {
+            name: "Data security",
+          },
+          {
+            name: "Data governance",
+          },
+          {
+            name: "Secure protocols",
           },
         ],
       },

@@ -51,4 +51,22 @@ Hosting
 
 ## Challenges and Learnings
 
+Most of the challenges of creating web-based visualizations with D3 were tackled in the prior project.
+
+I wanted to host this application online, which proved to be a simple process by using Vercel. 
+As I had already set my domain up with Cloudflare, it was also easy to create a sub-domain for
+the project. 
+
+I implemented dynamic display of the visualizations using Viewbox with D3, as previously I had 
+simply set the size of the plots manually. Viewbox implementation was fairly routine, but made 
+more difficult due to the repeated code from having two line chart functions to handle single
+and multiple data sources, respectively. In future D3 projects, I would better plan out my visualization functions as to make more flexible
+charts within the same function. 
+
 ## Outcome
+
+A simple data analysis project was produced that is hosted online, utilized interactive D3 
+charts and maps, and included my general observations. I used Python for data processing and
+analysis, then exported JSON files for use by D3 in the frontend. Next.js proved a useful 
+framework for creating web apps that can display data analyses, with ample room to expand on
+the functionality and features. 

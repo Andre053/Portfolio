@@ -1,0 +1,134 @@
+---
+title: "Dash for building data dashboards in Python (in progress)"
+publishedAt: "2025-11-05"
+summary: "My notes on learning the Dash framework for creating Python-based analytics dashboards."
+tag: "Study Notes"
+---
+
+## Data dashboard (Better Evaluation 2025)
+A data dashboard is a dynamic visual display of the most important information needed to 
+achieve one or more objectives. Data in a dashboard is consolidated and arranged 
+on a single screen so that the information can be monitored at a glance. 
+
+Dashboards often include multiple visualizations and minimal text to describe the displayed
+indicators. Their application spans industry, but is commonly used to monitor performance
+of projects, programs, teams, organizations, etc.; in these situations, dashboards should 
+aspire to track performance in an engaging manner and support timely interventions. 
+
+**Key characteristics**
+- All visualizations fit on a single screen
+- Only the most important indicators to be monitored over time are displayed
+- Regular updates of the data are made (should be automatic)
+- Simple to understand and used by anyone with accessbility
+- Often includes filtering and drill down functions to enable deeper analysis
+
+Well-designed dashboards transform data repositories into consumable information. 
+
+## Using Dash for data Dashboards
+Dash is a Python framework for creating interactive web-based dashboards. Being
+Python-based, it is generally easy to pick up and work with. Additionally, for 
+data science purposes, Dash benefits from the rich ecosystem of data libraries 
+avaiable to Python.
+
+## Understanding Dash (Dash 2025)
+### Layout
+The part of a Dash application that describes what the app looks like. The layout combines with
+interactivity to create a fully functional dashboard. 
+
+1. The layout is composed of a tree of "components"
+2. The Dash HTML Components (dash.html) is a module with components for all HTML tags 
+3. Not all components are pure HTML. The Dash Core Components (dash.dcc) contains 
+higher-level components that are interactive, often using JS, HTML, and CSS
+4. Each component is described entirely through keyword attributes. Dash is *declarative*
+5. The children property is special. It is always the first attribute and can contain a 
+string, a number, a single component, or a list of components
+6. Dash app fonts can be set with a custom CSS stylesheet
+
+Dash hot-reloads when changes are saved. 
+
+Dash HTML components differ from HTML attributes in the following ways:
+1. The *style* property in HTML is a semicolon-separated string. In Dash, use a dictionary
+2. Keys in the *style* dictionary are camelCased
+3. The HTML *class* attribute is *className* in Dash
+4. The children of the HTMl tag is specified through the *children* keyboard argument. This
+is always the first argument by convention, therefore often ommitted. 
+
+*Graph* component in *dash.dcc* renders interactive data visualizations using the plotly.js.
+It supports over 36 chart types and renders charts in vector-quality SVG and high-performance
+WebGL. 
+
+When writing blocks of text, the *Markdown* component in *dash.dcc* is usually more
+developer-friendly than using Dash HTML. 
+
+High-level components like dropdowns, graphs, markdown blocks, etc. are available in *dash.dcc*.
+Every component is described declaratively and is configurable with keyword arguments. 
+
+### Callbacks
+Dash uses callback functions for interactivity. Callback functions are called whenever a Dash input
+component's property changes, allowing for an update to be made. 
+
+Optimal user-interaction and chart loading performance should consider:
+1. The Job Queue
+2. HPC
+3. Datashader
+4. Horizontal scaling capabilities
+
+**Basic callbacks**
+1. Inputs and outputs of an application are described as the arguments of the *@callback* decorator
+2. Inputs and outpus are simply the properties of a particular component
+3. Whenever an input property changes, the callback function gets called automatically. Dash
+provides this callback function witht he new value of the input property as its argument and
+updates the property of the output component with whatever is returned by the function
+4. The *component_id* and *component_property* keywords are optional
+5. The *dash.dependencies.Input* object and *dcc.Input* object are different. The former 
+is used in callback definitions, the latter is an actual component
+6. When Dash start, it automatically calls all of the callbacks with the initial values 
+of the input components to populate the initial state of the output components
+
+The *@callabck* decorator:
+1. Tells Dash to call this function whenever the value of the "input" component changes in
+order to update the children of the "output" component on the page
+2. The function within the decorator can be named anything. By convention, the name should
+describe the callback output(s)
+3. The function arguments can have any name and they are positional by default; first the 
+*Input* items and then any *State* items
+4. The same *id* of a Dash component in *app.layout* must be used when referring to it 
+as an input or output of the *@callback* decorator
+5. The decorator must be directly above the callback function declaration
+
+Dash apps can have multiple inputs or outputs. 
+
+Callbacks can be chained.
+
+Components can be passed into callbacks. 
+
+Dash apps can have a state.
+
+### Interactive visualizations
+The *Graph* component in *dash.dcc* uses plotly.js for creating interactive vizualizations.
+
+The *figure* argument in the *Graph* component is the same *figure* argument used by *plotly.py*.
+
+The *Graph* component has 4 attributes that can change through user-interaction: *hoverData*,
+*clickData*, *selectedData*, and *relayoutData*.
+
+Limitations on graph interactions include the inability to customize the style of hover interactions
+or the select box. 
+
+### Sharing data between components
+Dash was designed to be stateless, but allows for state to be shared. Data can be shared 
+in 3 places:
+1. The user's browser session, using *dcc.Store*
+2. On the disk, ex. in a file of databases
+3. In server-side RAM that is shared across processes and servers, such as a Redis database
+
+NOTE: Global variables will break your app!
+
+### Publishing your app
+Dash apps can be easily published to Plotly Cloud or Dash Enterprise. Plotly Cloud can be 
+used for free is managed by Plotly; Dash Enterprise is a premier product that is installed
+on the cloud services of AWS, Azure, or Google. 
+
+## Resources
+[Better Evaluation. "Data Dashboard".](https://www.betterevaluation.org/methods-approaches/methods/data-dashboard)
+[Dash. "Documentation"](https://dash.plotly.com/)
