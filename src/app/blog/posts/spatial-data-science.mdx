@@ -1,5 +1,5 @@
 ---
-title: "Skills to learn for spatial data science"
+title: "Skills to learn for spatial data science (in progress)"
 publishedAt: "2025-11-04"
 summary: "My research on the skills I have and need to build to better analyze spatial data."
 tag: "Study Notes"
@@ -7,11 +7,151 @@ tag: "Study Notes"
 
 ## What is spatial data science?
 
+Spatial data science combines the use of spatial data and GIS technologies 
+with the theory and tools of data science; a spatial data scientist uses data 
+skills to enhance the analysis of spatial data. 
+
+Common skills for a spatial data scientist include (Forrest 2022):
+- Data processing/ETL/ELT to prepare data for analysis
+- Spatial SQL to be able to interface with large spatial databases
+- QGIS or similar GIS software for quick visualization of spatial data 
+- Geospatial Python for analyzing spatial data using Python libraries, 
+while also enabling the integration with other data science libraries
+- Jupyter notebooks for creating analysis notebooks with Python
+- Spatial statistics and ML to analyze the data
+
+
 ## My focus
+I want to build my spatial data science skills so that I can better:
+1. Analyze what is happening
+2. Provide context to observations
+3. Connect insights to public policy choices
 
-## What skills do I need?
-
-## Skills I currently have
+I want to focus my spatial data science studies on skills needed for analyzing issues
+such as housing, income, accessibility to services, government accountability, and 
+public service delivery; especially in an urban setting. I also want my analysis to 
+evaluate government programs where possible, therefore requiring policy analysis skills,
+both statistical and academic; to share these analyses, data storytelling will be crucial. 
 
 ## My top skills to build
+1. Spatial statistics and ML approaches
+2. Spatial SQL advanced uses
+3. Geospatial and data science Python libraries 
+### Spatial statistics and ML
+#### Common methods of analysis (Wikipedia 2025)
+**Multivariable analysis or Factor analysis**
+- Allows a change of variables, transforming the many variables of a data source, 
+usually correlated between themselves, into fewer independent "Principal Components"
+- The principal conponents, or factors, are the eigenvectors of the data correlation matrix
+- This change of variables has two main advantages:
+    1. Only a small amount of information is lost while many factors are dropped, mapping
+    then produces fewer and more significant maps
+    2. The factors are orthogonal by construction (not correlated). The dominant factor is 
+    most often the Social Component, separating rich and poor. Smaller processes appear as 
+    the subsequent factors. 
+- This analysis depends on measuring the distance between observations, so the choice of metric
+is key. Most common are:
+    1. Principal Component Analysis: Euclidean metric
+    2. Correspondence Analysis: Chi-Square distance
+    3. Discriminant Analysis: Generalized Mahalanobis distance
 
+**Spatial autocorrelation**
+- Measure and analyze the degree of dependency among observations in a geographic space
+- Classical autocorrelation statistics include:
+    - Moran's *I*
+    - Geary's *C*
+    - Getis's *G*
+    - Standard deviational ellipse
+- Each statistic requires measuring a spatial weights matrix reflecting intensity of 
+the geographic relationship between observations
+- Classic spatial autocorrelation compare spatial weights to the covariance relationship
+at pairs of locations
+    - Positive autocorrelation indicates clustering of similar values
+    - Negative indicates neighbouring values are more dissimilar than expected
+
+**Spatial heterogeneity**
+- A property that refers to the uneven distribution of concentrations of each group 
+within an area
+- A landscape with spatial heterogeneity has a mix of concentrations within an area
+- A population with spatial heterogeneity shows various concentrations of individuals 
+of this group unevenly distributed across an area (patchily distributed)
+
+**Spatial interaction or gravity models**
+- Estimate the flow of people, material, or information between geographic locations
+- Factors can include origin propulsive variables, ex. number of commuters, distination
+attractiveness, and proximity relationships
+
+**Spatial interpolation**
+- Estimate the variables at unobserved locations in geographic space based on other values
+- Basic methods include inverse distance weighting
+    - Attenuates the variable with decreasing proximity from the observed location
+- Sophisticated methods include kriging
+    - Interpolates across space according to a spatial lag relationships that has 
+    both systematic and random components
+    - Provides opitimal estimates given the hypothesized lag relationship
+    - Error estimates can be mapped to determine if spatial patterns exist
+
+**Spatial regression**
+- Capture spatial dependency in regression analysis
+    - Avoid statistical problems such as unstable parameters and unreliable
+    significance tests
+    - Provide info on spatial relationships among the variables involved
+- Spatial depenency can enter the regression model of specific techniques
+- Geographically weighted regression (GWR) is a local version of spatial regression
+    - Generates parameters disaggregated by the spatial units of analysis
+    - Allows assessment of spatial heterogeneity in the estimated relationships
+    between independent and dependent variables
+- Spatial stochastic processes are increasingly being deployed in spatial regression analysis
+    - Ex. Gaussian processes
+    - Model-based versions of GWR, have been applied to conduct Bayesian inference
+    - Scalable Gaussian process models such as Gaussian Predictive Processes and 
+    Nearest Neighbor Gaussian Processes (NNGP)
+
+**Spatial neural networks (SNNs)**
+- Subcategory of tailored NNs for representing and predicting geographic phenomena 
+- Generally improve the statistical accuracy and reliability of:
+    - A-spatial/classic NNs whenever they handle geo-spatial datasets  
+    - Other spatial models whenever the spatial datasets' variables depict non-linear
+    relationships
+- Ex. OFSA SNNs, SVANNs, and GWNNs
+
+**Spatial volatility**
+- Describe spatial or spatiotemporal dependence in the conditional variance of a process
+    - Extends the concept of Autoregressive conditional heteroskedasticity (ARCH) from 
+    time series to spatial settings
+- Account for the fact that variability at one location may be related to variability at 
+neighbouring locations, as defined by a spatial weights matrix
+- A generalized spatial and spatialtemporal ARCH/GARCH framework allows the conditional 
+variance at a location to depend on weighted past squared residuals from neighbouring locations
+    - In the spatialtemporal case, also its own past conditional variances
+- Applications found in disciplines where risk or uncertainty proagate over space
+
+#### Spatial statistics for data science (Morgara 2023)
+##### Areal data
+**Spatial neighbourhood matrices**
+**Spatial autocorrelation**
+**Bayesian spatial models**
+**Disease risk modeling**
+**Areal data issues**
+
+##### Geostatistical data
+**Geostatistical data**
+**Spatial interpolation methods**
+**Kriging**
+**Model-based geostatistics**
+**Methods assessment**
+
+##### Spatial point patterns
+**Spatial point patterns**
+**The spatstat package**
+**Spatial point processes and simulation**
+**Complete spatial randomness**
+**Intensity estimation**
+**The K-function**
+**Point process modeling**
+
+## References
+- [Forrest, Matt. 2022. "Top Modern GIS Skills for Spatial Data Science in 2022".](https://forrest.nyc/top-modern-gis-skills-for-spatial-data-science-in-2022/)
+- [Morgara, Paula. 2023. "Spatial Statistics for Data Science: Theory and Practice with R".](https://www.paulamoraga.com/book-spatial/)
+- [Pebesma, Edzer and Roger Bivand. 2025. "Spatial data science".](https://r-spatial.org/book/)
+- [Wikipedia. 2025. "Spatial data analysis".](https://en.wikipedia.org/wiki/Spatial_analysis#Spatial_data_analysis)
