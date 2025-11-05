@@ -284,6 +284,9 @@ const about: About = {
             name: "Azure",
           },
           {
+            name: "Cloudflare",
+          },
+          {
             name: "Microsoft Entra",
           },
           {
