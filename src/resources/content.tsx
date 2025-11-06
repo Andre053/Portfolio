@@ -89,7 +89,7 @@ const about: About = {
       <>
         André is a Toronto-based technical professional who is passionate about using data to understand and improve society. 
         He has worked as a software engineer, cybersecurity analyst, systems administrator, and data analyst. Rooted in an
-        interest in technology and politics, his interests lie in using technical skills to understand and advocate for solutions
+        passion for technology and politics, his interests lie in using technical skills to solve problems and advocate for solutions
         that champion the public good. 
       </>
     ),
@@ -383,7 +383,7 @@ const about: About = {
           },
         ],
       },
-    ],
+    ], // add a section for volunteering
   },
 };
 
@@ -414,12 +414,12 @@ const gallery: Gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/IMG_1400.jpg",
+      src: "/images/gallery/amherstberg-boat.jpg",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/IMG_1425.jpg",
+      src: "/images/gallery/amherstberg-sunset.jpg",
       alt: "image",
       orientation: "horizontal",
     },
