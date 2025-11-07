@@ -415,12 +415,27 @@ const gallery: Gallery = {
   images: [
     {
       src: "/images/gallery/amherstberg-boat.jpg",
-      alt: "image",
+      alt: "A tanker ship in the distance moving North along the Detroit River, shot from a boat in the canal.",
       orientation: "horizontal",
     },
     {
       src: "/images/gallery/amherstberg-sunset.jpg",
-      alt: "image",
+      alt: "September sunset across the Detroit River.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/christie-pitts-counterprotest-2025-1.jpg",
+      alt: "On the counterprotester side of the park, a band is setup and speakers take turns talking about the importance of organizing and showing up to counterprotest.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/christie-pitts-counterprotest-2025-2.jpg",
+      alt: "Counterprotesters surround a Canada First rally with police officers creating a layer between both groups.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/dufferin-grove-encampment-evicted-2025.jpg",
+      alt: "Fence put up around where the Dufferin Grove encampment used to be. The area inside is empty. On the fence, there is caution tape reading 'SECURITY LINE DO NOT CROSS' and a City of Toronto sign stating 'PARK REMEDIATION IS UNDERWAY'",
       orientation: "horizontal",
     },
   ],
