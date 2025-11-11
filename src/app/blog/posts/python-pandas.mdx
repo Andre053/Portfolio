@@ -1,0 +1,290 @@
+---
+title: "Python pandas for Data Science"
+publishedAt: "2025-11-11"
+summary: "Overview of the basics of pandas for use in data wrangling and basic analysis."
+tag: "Study Notes"
+---
+## Pandas
+Pandas is a NumPy-based library with extensive functionality for data science tasks.
+
+The library is particularly useful for:
+- Data wrangling
+- Data analysis
+
+## Recommended dependencies
+- *numexpr*: Performance acceleration for certain numerical and boolean operations
+- *bottleneck*: Performance acceleration of certain types of *nan*
+- *numba*: Performance acceleration using an alternative execution engine that translates Python into optimized machine code
+- Can be installed using *pip install "pandas[performance]"*
+
+## Data structures
+- Data alignment is intrinsic, links between data and labels will not be broken unless explicitly done
+- **Series**: One-dimensional labeled array 
+    - Axis labels are referred to as the *index*
+    - Holds most data types, but not mixed
+    - Act similarly to *ndarray*, or a fixed-size dict
+    - Can be instantiated from a dict
+    - Index must be provided if *data* is a scalar value
+    - *Name* attribute often assigned to the column label, can be renamed
+- Vectorized operations and label alignment with series
+    - Looping through value-by-value is not usually necessary
+    - Ex. s + s, s * 2, np.exp(s)
+    - Operations between series automatically align the data based on label (do not worry about label alignment)
+    - If the series are unaligned, there will be a *union* of the indexes with NaN
+- **DataFrame**: Two-dimensional labeled data structure with columns of potentially different types
+    - Optionally, *index* (row labels) and *columns* (column labels) can be passed
+    - Can be constructed from
+        - Dict or series of dicts
+        - Dict of ndarrays of lists
+        - List of dicts
+        - Dict of typles
+        - A series
+        - List of namedtuples
+        - List of dataclasses
+    - *orient* parameter can be passed to a constructor, *columns* be default, can be set to *index*
+    - Semantically treated like a dict of like-indexed *Series* objects
+    - The *assign()* method allows creation of a new column, potentially derived from existing columns
+        - Inspired by dplyr's *mutate* verb
+    - Indexing and selecting
+        - Select col: df[col] return a *Series*
+        - Select row by label: df.loc[label] returns a *Series*
+        - Select row by integer location: df.iloc[loc] returns a *Series*
+        - Slice rows: df[start:end] returns a *DataFrame*
+        - Select rows by boolean vector: df[bool_vec] returns a *DataFrame*
+    - Data is aligned automatically on both the columns and the index; if unaligned, a union is returned
+    - Arithmetic and boolean operations with scalars operate element-wise
+    - Transpose using the *T* attribute or *DataFrame.transpose()*
+- Most NumPy functions can be called directly on a *Series* or *DataFrame*
+    - *DataFrame* is not a drop-in replacement for ndarry, indexing semantics and data model are different
+    - *Series* implements *__array_ufunc__* to work with NumPy's universal functions
+
+## Descriptive statistics
+- Lower-dimentional aggregations
+    - Ex. *sum()*, *mean()*, and *quantile()*
+- Equal-dimensional aggregations
+    - Ex. *cumsum()* and *cumprod()*
+    - These methods generally take an *axis* argument, *index* (axis=0) or *columns* (axis=1)
+- Standardization
+    - Combine with broadcasing / arithmetic behaviour to concisely describe statistical procedures
+    - Ex. *std()*
+- *describe()* computes a variety of summary statistics
+    - Can choose which statistics with *include* option
+- Index of max and min
+    - *idxmin()* and *idxmax()*
+    - Can pass the axis if a *DataFrame*
+- Value counts (histogramming)
+    - *value_counts()* is a *Series* method that computes a histogram 
+    - Can also be used as a function on regular arrays
+    - Can count combinations across multiple columns
+- Discretization and quantiling
+    - *cut()*: Decretize continuous values with bins based on values
+    - *qcut()* Decretize continuous values with bins based on sample quantiles
+    - Can pass infinite values to define the bins: *pd.cut(arr, [-np.inf, 0, np.inf])*
+
+## Operations
+**Applying functions**
+1. Tablewise function application: *pipe()*
+2. Row or column-wise function application: *apply()*
+3. Aggregation API: *agg()* and *transform()*
+    - Allows for multiple aggregation operations
+    - Similar to the groupby API, window API, and resample API
+4. Applying elementwise functions: *map()*
+**Merging**
+**Grouping**
+**Reshaping**
+**Sorting**
+**Copying**
+**Iterating**
+- *for i in object*:
+    - Will iterate values of a *Series*
+    - Iterates column labels of a *DataFrame*
+- *items()* method allows iteration of (key, value) pairs
+    - *Series*: (index, scalar value) pairs
+    - *DataFrame*: (column, Series) pairs
+- Iterate over *DataFrame* rows with:
+    - *iterrows()*: Iterate over (index, Series) pairs, rows are Series objects
+    - *itertuples()*: Iterate over rows as namedtuples of the values, much faster
+
+## APIs
+- **Aggregation API**
+- **Groupby API**
+- **Window API**
+- **Resample API**
+
+## Optimization
+**Accelerated operations**
+- pandas supports accelerating certain binary numerical and boolean operations using *numexpr* and *bottleneck* libraries
+    - Particularly useful dealing with large data sets, provide large speedups
+- *numexpr* uses smart chunking, caching, and multiple cores
+- *bottleneck* uses specialized cython routines, best equipped for dealing with arrays with *nans*
+**Flexible binary operations**
+- Key points of interest
+    - Broadcasing behaviour between higher- and lower-dimentional objects; ex. *DataFrame* and *Series*
+    - Missing data in computations
+- Maching / broadcasing behaviour
+    - *DataFrame* methods such as *add()*, *sub()*, *mul()*, *div()*, *radd()*, and *rsub()* carry out binary operations
+    - *Series* input is of primary interest for broadcasing behaviour
+    - *divmod()* builtin takes the floor division and modulo operation at the same time, returns a two-tuple
+- Missing data / operations with fill values
+    - Arithmetic functions have the option of inputting a *fill_value*
+    - Ex. treat NaN as 0 for computations
+- Binary comparison methods: *eq*, *ne*, *lt*, *gt*, *le*, and *ge*
+- Boolean reduction methods: *empty*, *any()*, *all()*, and *bool()*
+    - Useful to summarize a boolean result; ex. (df > 0).all() or (df > 0).any()
+    - Can reduce the final boolean value with: (df > 0).any().any()
+- Combine overlapping data sets with *combine_first()*
+    - Will prioritize the main *DataFrame* when like-labeled values are found
+    - Calls the more general *combine()* method
+**Reindexing and altering labels**
+- *reindex()* is the fundamental data alignment method in pandas
+- Reindexing conforms the data to match a given set of labels along a particular axis, achieving:
+    - Reorders existing data to match a new set of labels
+    - Inserts missing value (NA) markers in label locations where no data for that label existed
+    - If specified, fill data for missing labels using logic
+- Can align objects with each other using *align()*
+    - Supports a *join* option to specify: outer, left, right, or inner
+- Filling method can be set with the *method* option: pad / ffill, bfill / backfill, nearest
+    - Require that indexes are ordered 
+- Rename labels with *rename()*
+    - Can map using a dictionary, can specify teh axis
+**Vectorized string methods**
+- Set of string processing methods to simplify operation on each element of an array
+    - Methods exclude missing/NA values automatically
+    - Accessed using the Series's *str* attribute
+    - Ex. *s.str.lower()*
+
+## Handling data
+**Missing data**
+- All computation methods should have a *skipna* option to signal to exclude missing data
+    - True by default
+**Datetime and time series**
+- *Series* has a *.dt* accessor to return datetime properties for the values of a Series
+    - *s.dt.tz_localize()*: For timezone aware transformations
+    - *s.dt.hour*: Hours of the series
+    - *s.dt.day*: Days of the series
+    - *s.dt.strftime()*: Convert the series to a new format
+- pandas captures 4 general time related concepts:
+    1. Date times: Specific date and time with timezone support
+    2. Time deltas: Absolute time duration
+    3. Time spans: Span of time defined by a point in time and its associated frequency
+    4. Date offsets: A relative time duration that respects calendar arithmetic
+**Categoricals**
+- Similar to R's *factor* and *levels* data type
+- Specify the dtype using: *dtype="category"* or *astype("category")*
+
+## Indexing and selecting data
+- Indexing generally done with *[]*, *.loc()*, and *.iloc()*
+- Slicing is supported using the syntax *[start:end]*
+- *where()* method maintains the same shape of the original data when subsetting
+    - Ex. *s[s > 0]* returns only the selected rows while *s.where(s > 0)* returns a Series with the original shape
+- *query()* allows selection using an expression
+- *get()* can return a default value is not found
+- *factorize()* method extracts a set of values given a sequence of row and column labels
+- The Index class and its subclasses implement an ordered multiset where duplicates are allowed
+    - Provides infrastructure for lookups, data alignment, and Reindexing
+    - Can be constucted with a list; ex. *pd.Index([1, 2, 3])*
+- Setting or resetting an index
+    - *set_index()* takes a column name, or list of names, and creates a new, re-indexed *DataFrame*
+    - *append* option allows keeping the existing index, appending the given columns to a MultiIndex
+    - *reset_index()* transfers teh index values into the DataFrame's columns and sets an integer index; this is the inverse operation of *set_index()*
+
+## MultiIndex / advanced indexing
+- MultiIndex provides hierarchical indexing
+    - Useful for sophisticated data analysis and manipulation, especially for higher dimensional data
+- MultiIndex can be thought of as an array of tuples where each is unique
+
+## Data reshaping and pivoting
+- *pivot()* and *pivot_table()*: Group unique values within one or more discrete categories
+- *stack()* and *unstack()*: Pivot a column or row level to the opposite axis, respectively
+- *melt()* and *wide_to_long()*: Unpivot a wide *DaatFrame* to a long format
+- *get_dummies()* and *from_dummies()*: Conversions with indicator values
+- *explode()*: Convert a column of list-like values to individual rows
+- *crosstab()*: Calculate a cross-tabluation of multiple 1-dimensional factor arrays
+- *cut()*: Transform continuous variables to discrete, categorical variables
+- *factorize()*: Encode 1-dimensional variables into integer labels
+
+## Duplicate labels
+- Detect if an *Index* is unique with *is_unique()*
+- To get an array of repeated indexes, use *duplicated()*
+- When creating an object, disallow duplicates by setting the flag: *set_flag(allows_duplicate_labels=False)*
+    - Disallowing duplicates is sticky, preserved through operations
+
+## Windowed operations
+- Windowing operations perform an aggregation over a sliding partition of values
+- pandas has a set of APIs for performing windowing operations, supporting the following
+    1. Rolling window: Generic fixed or variable sliding window over the values
+    2. Weighted window: Weighted, non-rectangular window suppled by the *scipy.signal* library
+    3. Expanding window: Accumulating window over the values
+    4. Exponentially weighted window: Accumulating and exponentially weighted window over the values
+
+## Options and settings
+- Options API is composed of 5 relevant functions
+    - *get_option()* and *set_option()*: Get/set the value of a single option
+    - *reset_option()*: Reset one or more options to their default value
+    - *describe_option()*: Print descriptions of one or more options
+    - *option_context()*: Execute a codeblock with a set of options that revert prior settings
+
+## Enhancing performance
+**Cython**
+- Writing C extensions for Python to offload work to cython
+- Should only be used after refactoring Python as much as possible to improve performance
+    - Ex. remove for-loops, making use of NumPy vectorization
+**Numba**
+- JIT compolation for generating better machine code
+- Can be used in 2 ways
+    1. Specify the *engine="numba"* keyword in select pandas methods
+    2. Define a custom function decorated with *@jit* and pass the NumPy array of objects into the function 
+**Expression evaluation using *eval()***
+    - Only useful on large datasets or with complex expressions
+    - Much slower than base expressions involving small dataframes 
+
+## Scaling to large datasets
+- Load less data
+    - Only load columns that are needed
+    - Load all data, then filter what is needed; ex. *pd.read_csv("file.csv")[cols]*
+    - Load only columns requested: *pd.read_csv("file.csv", usecols=cols)*
+- Use efficient datatypes
+    - Default pandas data types are not the most memory efficient
+        - Especially text data with few unique values ("low-cardinality" data)
+    - *pd.Categorical* for low-cardinality string data types
+    - *pd.to_numeric()* to downcast numeric columns to their smallest types
+        - Use the *downcast* option; ex. *downcast="unsigned"*, *downcast="float"*
+- Use chunking
+    - Split large dataset into smaller datasets
+    - Can split a single file into multiple then read and work on each chunk
+- Use other libraries
+    - Find other libraries to support pandas with big data
+    - Review the [pandas ecosystem](https://pandas.pydata.org/community/ecosystem.html#out-of-core)
+
+## DataFrame functions
+- *info()*: Summary of the *DataFrame* function 
+- *head()* and *tail()*: Show first and last rows, respectively
+- *shape*: Gives the axis dimensions of the object, consistent with ndarray
+- *index*: Axis labels of a *Series*, rows of a *DataFrame*
+- *columns*: Column axis labels of a *DataFrame*
+- *fillna()*: Replace NaN with some other value
+- *empty*: Check if pandas object is empty; asserting truthiness of the object throws an error
+
+## Common statistics functions
+- *count()*: Number of non-NA observations
+- *sum()*: Sum of values
+- *mean()*: Mean of values
+- *median()*: Arithmetic median of values
+- *min()*: Minimum
+- *max()*: Maximum
+- *mode()*: Mode
+- *abs()*: Absolute value
+- *prod()*: Product
+- *std()*: Bessel-corrected sample standard deviation
+- *var()*: Unbiased variance
+- *sem()*: Standard error of the mean
+- *skew()*: Standard skewness (3rd moment)
+- *kurt()*: Standard kurtosis (4th moment)
+- *quantile()*: Sample quantile (value at %)
+- *cumsum()*: Cumulative sum
+- *cumprod()*: Cumulative product
+- *cummax()*: Cumulative max
+- *cummin()*: Cumulative min
+
+## References
+[Pandas User Guide](https://pandas.pydata.org/docs/user_guide/index.html)
