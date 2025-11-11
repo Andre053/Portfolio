@@ -1,0 +1,124 @@
+---
+title: "Data Engineering"
+publishedAt: "2025-11-11"
+summary: "Overview of data engineering tasks and tools."
+tag: "Study Notes"
+---
+## What is data engineering?
+- The practice of designing and buildign systems for data aggregation, storage, and analysis
+- Support stakeholders in accessing datasets at any time, ensuring reliability, convenience, and security
+- Data engineers are focused on creating and deploying algorithms, data pipelines, and workflows to sort raw data into useful datasets
+    - An integral component to the modern data platform
+    - Convert mass quantities of raw data into useable core datasets
+        - Core datasets are tailored to specific downstream use cases
+- Data engineering covers the design and creation of data pipelines
+
+**Pillars of a strong core dataset**
+1. Ease of use
+2. Context-based
+3. Comprehensive
+
+**Data integration pipeline**
+1. Data ingestion
+2. Data transformation
+3. Data serving
+
+**Data tools**
+- Data pipelines: ETL vs. ELT
+    - Automation of the integration process is done with pipelines
+    - ETL pipeliens automate retrieval and storage, transforming before loading
+        - Most common; best when data from multiple sources should be in a unified format
+    - ELT pipelines extract raw data and import it before standardizing with transformations 
+        - More flexible as the data can be transformed afterwards, based on its needs
+- Data storage
+    - Cloud computing services
+        - Azure Data Lake Storage
+        - Amazon S3 and other AWS solutions
+        - Google Cloud
+    - Relational databases
+        - MySQL
+        - PostgreSQL
+        - Amazon RDS
+    - NoSQL databases
+        - MongoDB
+        - AWS DynamoDB, DocumentDB
+    - Data warehouses
+        - Snowflake
+        - BigQuery
+        - Amazon RedShift
+    - Data lakes
+        - Hadoop 
+        - Apache Spark
+        - Kafka
+    - Data lakehouses
+        - Databricks 
+        - BigQuery 
+- Programming languages
+    - SQL
+    - Python
+    - Scalable
+    - Java
+## Data platform
+- IT solution enabling data collection, storage, cleaning, transformation, analysis, and governance
+- Provides the tools organizations need to safeguard data quality and unlock data value
+- Also called a data stack
+- 5 foundational layers
+    1. Data storage and processing
+    2. Data ingestion
+    3. Data transformation
+    4. Data analysis
+    5. Data observability 
+
+**Types of data platforms**
+- 4 main types
+    - Enterprise data platform (EDP)
+    - Big data platform (BDP)
+    - Cloud data platform (CDP)
+    - Customer data platform (CDP)
+- Enterprise data platforms champion:
+    - Availability of data within a data lake, data warehouse, or data lakehouse which separate storage and compute; saves cost on data storage
+    - Elasticity as compute functions are cloud-based, enabling autoscalability
+- Big data platforms are often distributed but designed for high-speed processing
+    - Often available as SaaS products
+- Cloud data platforms are cloud-based, enabling various benefits:
+    - Often available on a pay-as-you-go basis
+    - Storage space is flexible, can be quickly scaled
+    - No on-premis maintenance required
+    - Can house platforms for other data platforms
+    - Often offer supplemental capabilities like advanced analytics, ML, and visualization tools
+- Customer data platforms are focused on collecting and unifiying customer data from multiple sources
+
+**Data platform technologies**
+1. Data storage layer: How is data stored and for what purpose?
+    - Data warehouse: Aggregates data from different sources; most often manage structured data with clearly defined analytics use cases
+        - Optimized for performance and analysis 
+    - Data lake: Stores both structured and unstructured data in various formats; lower-cost raw data storage
+        - Optimized for storage and cost
+        - Originally often built in the Hadoop ecosystem, now in the cloud with services like S3 and Spark for processing
+    - Data lakehouse: Combines capabilities of data warehouses and data lakes
+        - Attempts to provide better performance while offering more flexible storage and decent costs
+2. Data ingestion layer: How is data collected?
+    - Batch processing: Data is grouped and collected as batches that are sent to storage; less work and less expensive than real-time
+    - Real-time processing: Data is not grouped, it is obtained, transformed, and loaded as it is recognized
+        - Also called streaming or stream processing
+        - More expensive, requires more monitoring
+3. Data transformation layer: How is data prepared for analysis?
+    - ETL procedures do the prep work before delivering the data, best for in-house analytics
+    - ELT procedures bypass preload transformation to send raw data directly and quickly, transformed on arrival
+        - Common for cloud-based data warehouses like Snowflake or BigQuery
+4. Data analytics layer: How is the data analyzed? 
+    - Where users directly interact with the data to analyze it 
+5. Data observability layer: How is the data platform monitored?
+    - To promote data quality, availability, and reliability, the data platform must be monitored, managed, and maintained
+    - Activities include tracking, loggign, alerting, and anomaly detection 
+
+**Additional data platform layers**
+- Data discovery: Collecting, evaluating, and exploring data from disparate sources to bring it together for use
+- Data governance: Efforts to protect sensitive information, drive regulatory compliance, facilitate access, and manage data quality
+    - Tools include: access contols, encryption, auditing, and data lineage tracking
+- Data cataloging and metagdata management: Creation of an informative and searchable inventory of all data assessment
+- ML and AI: Incorporated to help extraction of insights from data
+
+## References
+[IBM. n.d. "What is data engineering?"](https://www.ibm.com/think/topics/data-engineering)
+[IBM. n.d. "What is a data platform?"](https://www.ibm.com/think/topics/data-platform)
