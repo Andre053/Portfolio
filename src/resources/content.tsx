@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "André",
   lastName: "de Biasi",
   name: `André de Biasi`,
-  role: "Data Scientist and Software Engineer",
+  role: "Data Scientist | Software Engineer | IT Specialist",
   avatar: "/images/avatar.jpg",
   email: "andre.debiasi053@gmail.com",
   location: "America/Toronto", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -44,7 +44,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Using data to better understand the real world</>,
+  headline: <>Improving the public good with data and technology</>,
   featured: {
     display: true,
     title: (
@@ -61,7 +61,7 @@ const home: Home = {
   subline: (
     <>
       I'm André, I currently work as an IT Technician at The Canadian Press where I support users with technical issues and write software.
-      <br /><br />After hours, I study data science, public policy, and politics while building my own projects.
+      <br /><br />After hours, I study data science, public policy, and urban planning while building my own projects.
     </>
   ),
 };
@@ -390,8 +390,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing...",
-  description: `Read what ${person.name} has been up to recently`,
+  title: `Blog – ${person.firstName}`,
+  description: `Read what ${person.firstName} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
@@ -399,7 +399,7 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
+  title: `Projects – ${person.firstName}`,
   description: `My projects ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
