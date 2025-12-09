@@ -438,6 +438,36 @@ const gallery: Gallery = {
       alt: "Fence put up around where the Dufferin Grove encampment used to be. The area inside is empty. On the fence, there is caution tape reading 'SECURITY LINE DO NOT CROSS' and a City of Toronto sign stating 'PARK REMEDIATION IS UNDERWAY'",
       orientation: "horizontal",
     },
+    {
+      src: "/images/gallery/december-house.jpg",
+      alt: "Driveway up to a house covered in snow.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/december-shopyard.jpg",
+      alt: "Workyard covered in snow.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/december-workshop.jpg",
+      alt: "Workshop covered in snow with workyard in the background.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/december-old-car.jpg",
+      alt: "Old car covered in snow with woodpile and forest in the background.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/december-trees-1.jpg",
+      alt: "Tops of trees from the ground.",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/december-trees-2.jpg",
+      alt: "Tops of trees from the ground.",
+      orientation: "horizontal",
+    },
   ],
 };
 
