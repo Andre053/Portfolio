@@ -1,0 +1,111 @@
+---
+title: "Toronto Shelter Occupancy Dashboard (initial ideas)"
+publishedAt: "2025-11-06"
+summary: "Dashboard created for the Open Data dataset on overnight occupancy of Toronto's shelter system."
+tags: "Project"
+---
+
+## Overview
+
+This project will aim to create an interactive dashboard for the Toronto shelter system.
+
+## The data
+**Key information**
+- Data first published in 2021, before was a less detailed dataset 
+- Dataset is updated daily
+- Mirrors the reporting from the Shelter Management Information System (SMIS) database
+- Only includes records that have a value in SERVICE_USER_COUNT
+- Each record represents the service user count of a specific program
+- Each program is run by an organization, within a shelter, at a location 
+- Program, organization, shelter, and organization each have a name field and an ID field
+  - ID uniquely identifies over time, even when the name is changed 
+
+**Programs**
+- Programs are classified into two different types of models
+  - Emergency: Accessed by any individual or family experiencing homelessness
+  - Transitional: Provides required, specialized programming; can be accessed by eligible individuals and families by referral only
+- Programs are classified into different areas, most generally as part of the base shelter and overnight services system, or part of a temporary response program; more specifically:
+  - Base Shelter and Overnight Services System
+  - Base Program - Refugee
+  - Temporary Refugee Response
+  - COVID-19 Response
+  - Winter Response
+
+**Sectors**
+- Categorizes homeless shelters based on gender, age, and household size of the service user group(s) served
+- Currently 5 shelter sectors
+  - Adult men
+  - Adult women
+  - Mixed adult
+  - Youth
+  - Family
+
+**Capacity type**
+- Each program is categorized into either bed-based or room-based capacity
+
+**Occupancy data**
+For each program, as specified by the prior fields, there are sums of various important metrics:
+- Service user count: Number of service users staying in an overnight program as of the occupancy time and date
+- Capacity actual bed: Number of beds showing as available for occupancy in the SMIS
+- Capacity funding bed: Number of beds that a program has been approved to provide
+- Occupied beds: Number of beds showing as not occupied in the SMIS
+- Unoccupied beds: Calculated number of beds showing as available for occupancy 
+- Capacity actual room: Number of rooms showing as available for occupancy in the SMIS
+- Capacity funding room: Number of rooms that a program has been approved to provide
+- Occupied rooms: Number of rooms showing as not occupied in the SMIS
+- Unoccupied rooms: Calculated number of rooms showing as available for occupancy 
+- Occupancy rate beds: Proportion of actual bed capacity that is occupied
+- Occupancy rate rooms: Proportion of actual room capacity that is occupied
+
+## Ideas
+The purpose of the dashboard should be to show the current state of the shelter system. 
+
+The key questions I plan to address in this dashboard are:
+- What is the current occupancy of the shelter system?
+- How has the shelter system occupancy changed over time?
+- How do the different parts of the shelter system compare?
+  - I.e. program type, program sector, program area, capacity type
+- How is the shelter system different spatially? 
+- How the data changes between FSA, neighbourhood, etc.
+
+Drill down functionality
+- By timeframe
+- By FSA
+- By neighbourhood
+- By shelter
+- By program type (transitional or emergency)
+- By sector
+
+## Technologies
+- Python: Easy to use language with rich data science libraries
+    - Pandas: Data processing and analysis
+- Dash: Framework for creating interactive web visualizations with Python
+- Plotly Cloud: Free hosting for Dash applications
+- Cloudflare: Proxy for domain
+
+## Creating the project
+1. Ingest the data
+Data is downloaded locally as 4 CSV files using a Python script. 
+
+2. Load the data
+Data is read from each CSV file and combined into a single pandas DataFrame.
+
+3. Prepare the data
+To prepare the data for analysis, various steps are taken:
+a. Data types are set
+b. FSA column is added 
+
+4. Analyze the data
+Calculate statistics and tranform data for visualization. 
+
+5. Visualize the data
+Create Dash elements to show the data. 
+
+## Dashboard layout
+**Main dashboard**
+- Occupancy statistics
+- Program statistics 
+- Occupancy plots 
+
+## References
+[City of Toronto. n.d. "Daily Shelter & Overnight Service Occupancy & Capacity"](https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/)

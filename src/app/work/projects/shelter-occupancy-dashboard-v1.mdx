@@ -1,0 +1,38 @@
+---
+title: "Toronto Shelter Occupancy Dashboard (version 1)"
+publishedAt: "2025-12-09"
+summary: "Dashboard created for the Open Data dataset on overnight occupancy of Toronto's shelter system."
+images: 
+  - "/images/projects/shelter-data-dashboard/demo-12-2025.png"
+team:
+  - name: "André de Biasi"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/andre-de-biasi/"
+link: "https://github.com/Andre053/Toronto-Shelter-Occupancy-Dashboard"
+---
+
+## Overview
+
+This project aims to provide an analytics dashboard for the Toronto Overnight Shelter and Occupancy dataset. 
+
+## Current features
+
+1. View line graph of occupancy metrics: Service user count, occupied/unoccupied beds, occupied/unoccupied rooms
+2. View line graph on program metrics: Program count, organization count, shelter count, location count
+3. View area chart of occupied vs. unoccupied beds/rooms
+4. Summary statistics of service users in the time range
+5. Choose to show data by date or month
+6. Choose to show last month, last 6 months, last year, or all time data; or customize the time interval
+7. Database is updated daily from the Toronto Open Data API
+
+## Technology stack
+
+1. Database: Data is stored in an PostgreSql instance hosted in the cloud. 
+2. Data ingest: GitHubs Actions is used to ingest and process new data to the database each day
+3. Full-stack app: Python with the Dash framework is used to consume, analyze, and display the data
+
+## Demo
+
+![Screenshot of application from December 9, 2025.]("/images/projects/shelter-data-dashboard/demo-12-2025.png")
+
