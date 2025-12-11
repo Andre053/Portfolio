@@ -1,0 +1,99 @@
+---
+title: "Exploratory data analysis with R"
+publishedAt: "2025-12-11"
+summary: "Overview of common steps for EDA implemented in R."
+tag: "Study Notes"
+---
+
+## What is Exploratory Data Analysis?
+
+Exploratory data analysis (EDA) is a statistical data analysis approach that 
+aims to summarize the main characteristics of the data. The main techniques used
+in EDA are visualization and dimensionality reduction. 
+
+In R, ggplot and dplyr libraries are great options for visualizing and 
+manipulating data, respectively. 
+
+## Steps to conducting an EDA
+EDA is an iterative cycle requiring:
+1. Generating questions about the data
+2. Searching for answers by visualizing, transforming, and modelling the data
+3. Use information found to refine questions and/or generate new questions
+
+It is a creative process. The key to asking quality questions is by generating a 
+large quantity of questions. 
+
+Two types of questions are very useful:
+1. What type of variation occurs within the variables?
+2. What type of covariation occurs between the variables?
+
+## Variation
+
+Variation is the tendency of values of a variable to change between measurements. 
+The variation of a distribution is best seen through visualizations. 
+
+For categorical variables, bar charts are useful. For continuous variables, histograms are best. 
+
+Useful questions:
+- Which values are most common? Why?
+- Which values are rare? Why? Does this match your expectations?
+- Can you see any unusual patterns? What might explain them?
+
+To understand subgroups:
+- How are the observations within each cluster similar to each other?
+- How are the observations in separate clusters different from each other?
+- How can you explain or describe the clusters?
+- Why might the appearance of clusters be misleading?
+
+Outliers, or unusual values, stray from the pattern of the data. Identifying and handling 
+outliers is crucial to further analysis efforts. 
+
+Missing values can also cause issues in overall analysis. They should be handled initially. 
+
+## Covariation
+Covariation is the behaviour between variables within a distribution. It is the tendency for
+the values of two or more variables to vary together in a related way. 
+
+## Visualizations
+
+**Bar plot**
+geom_bar() or geom_col()
+
+Display the frequency of categorical variables with the bar plot. The column chart is used 
+for showing other values by category. 
+
+**Histogram**
+geom_histogram()
+
+Display the frequency of continuous variables.
+
+**Frequency poly plot**
+geom_freqpoly()
+
+Display the frequency of continuous variables as a line graph. Can also show
+separate categorical variables. Displaying count can cause an issue when the 
+overall counts of categorical variables differ significantly. In this case, 
+display density instead, the standardized count so that the area under each
+frequency polygon is one. 
+
+**Box and whisker plot**
+geom_boxplot()
+
+Display the distribution of a continuous variable with indicators for quartiles, 
+whisker for non-outliers, and separate outliers.
+
+**Count plot**
+geom_count()
+
+Display the covariation between categorical variables. The size of each circle displays
+how correlated they are. 
+
+**Tile plot**
+geom_tile()
+
+Alternative to the count plot, using tiles and colours instead of shapes and size to 
+display the correlation. Must manipulate the data for display first. 
+
+## References
+[Wikipedia. Retrieved December 11, 2025. "Exploratory data analysis."](https://en.wikipedia.org/wiki/Exploratory_data_analysis#Techniques_and_tools)
+[R for Data Science. Retrieved December 11, 2025. "Exploratory data analysis."](https://r4ds.had.co.nz/exploratory-data-analysis.html#exploratory-data-analysis)
