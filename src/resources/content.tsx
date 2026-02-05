@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "André",
   lastName: "de Biasi",
   name: `André de Biasi`,
-  role: "Data Scientist | Software Engineer | IT Specialist",
+  role: "Data Scientist | Software Engineer | IT Admin",
   avatar: "/images/avatar.jpg",
   email: "andre.debiasi053@gmail.com",
   location: "America/Toronto", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -44,7 +44,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Improving the public good with data and technology</>,
+  headline: <>Curious problem solver passionate about technology</>,
   featured: {
     display: true,
     title: (
@@ -61,7 +61,7 @@ const home: Home = {
   subline: (
     <>
       I'm André, I currently work as an IT Technician at The Canadian Press where I support users with technical issues and write software.
-      <br /><br />After hours, I study data science, public policy, and urban planning while building my own projects.
+      <br /><br />After hours, I am studying and working on projects at the intersection between data science, social policy, and commuity advocacy.
     </>
   ),
 };
@@ -87,10 +87,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        André is a Toronto-based technical professional who is passionate about using data to understand and improve society. 
-        He has worked as a software engineer, cybersecurity analyst, systems administrator, and data analyst. Rooted in an
-        passion for technology and politics, his interests lie in using technical skills to solve problems and advocate for solutions
-        that champion the public good. 
+        Toronto-based technical professional who is passionate about using data and 
+        technology to make a positive impact on society. He has worked as a software 
+        engineer, cybersecurity analyst, systems administrator, and data analyst. Rooted in an
+        passion for technical understanding and politics, his interests lie in using technical skills 
+        to solve problems and advocate for solutions that champion the public good. 
       </>
     ),
   },
@@ -188,6 +189,10 @@ const about: About = {
     title: "Education",
     institutions: [
       {
+        name: "University of Toronto, School of Cities",
+        description: <>Microcredential in Urban Data Analysis and Visualization (in progress).</>,
+      },
+      {
         name: "Toronto Metropolitan University",
         description: <>Certificate in Public Administration and Leadership (in progress).</>,
       },
@@ -244,16 +249,19 @@ const about: About = {
         ),
         tags: [
           {
+            name: "Python",
+          },
+          {
+            name: "R",
+          },
+          {
+            name: "SQL",
+          },
+          {
             name: "TypeScript",
           },
           {
             name: "Next.js",
-          },
-          {
-            name: "Python",
-          },
-          {
-            name: "SQL",
           },
           {
             name: "Bash",
