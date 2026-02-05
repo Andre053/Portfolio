@@ -1,0 +1,100 @@
+---
+title: "Software-defined radio introduction"
+publishedAt: "2026-01-21"
+summary: "Learning about a new tech hobby."
+tag: "Study Notes"
+---
+
+## What is SDR?
+Software-defined radio (SDR) is a radio system that uses a basic hardware 
+device along with software implementation of the functionality. While classic
+radio systems were implemented fully in hardware, SDR systems only need to have 
+hardware to send/receive signals, while all the processing can be done in software. 
+
+SDR gains in flexibility and affordability due to the software-defined nature and 
+the simpler engineering of the hardware. Additionally, most software systems are 
+open-source and free to use. 
+
+## Interest in signals
+I bought an SDR to start my exploration into radio systems and the surrounding 
+technologies. Since getting into IT, I have been fascinated by signals and the 
+protocols they carry, though most of my study and work rarely encouraged me to 
+dive deeper than computer networking. Inspired by the use of radio in media like
+Pluribus, I decided to look into radio systems. 
+
+Key to my interest is being able to understand signals and the silent world they
+occupy around us. I aim to explore SDR programs and how they work, but also learn 
+to write my own programs that can analyze and process signals. 
+
+While I am focusing on receiving, I aim to upgrade my hardware and learn to transmit
+as I become more knowledgeable. 
+
+## Radio basics and concepts
+At a high level, radio systems work like this:
+1. A signal is modulated and transmitted at a specific frequency
+2. The radio antenna receives the signal on that frequency
+3. An analog-to-digital convertor (ADC) samples the analog signal into a digital representation
+4. Processing is done to tune to that specific signal, demodulate, and resample it for use
+5. To transmit, a digital signal is created and made analog with a digital-to-analog convertor (DAC)
+6. The digital signal is transmitted on the frequency
+
+**Modulation**
+Modulation is the process of encoding a digital signal. Demodulation decodes it. 
+
+Signals are created using two components: data and a carrier wave. The data must be
+encoded as values over time. The carrier wave is set for the specific frequency that
+will be transmitting the signal. The data is modulated such that it is part of the 
+carrier wave, and the data can be demodulated from the carrier wave. A comparison could
+be xxx. 
+
+**Gain**
+Applying gain to a signal multiplies its strength. 
+
+Gain is typically measured in decibels (dB), a logarithmic unit measuring the intensity
+of a signal. A 10x increase in the gain of a signal'samples power is equivalent to a
++10 dB gain.
+
+When a signal has too much power, software/hardware may not be able to output it. 
+
+**Filters**
+Applying a filter to a signal aims to reduce the gain of some frequency, while retaining
+the original signal for the rest. 
+
+Filters are characterized by the following:
+- Passthrough
+- Cutoff
+- Transition
+
+There are four key types of filters:
+- Low
+- High
+- Band
+- Notch
+
+Filtering effectiveness drops in the transition zone of any filter, especially closer
+to the cutoff. The underlying algorithm can be improved at the cost of compute. 
+
+**Equalizer**
+A system using filters to customize the gain of different bands of frequencies in a 
+signal.
+
+A simple equalizer could have 3 filters for the trebel, middle, and bass, respectively. 
+Each of these filters can be dialed to apply a different gain to the respective band. 
+
+**Time domain**
+The time domain of a signal shows how it changes in power over time. The signal is 
+equal to the sum of all frequencies that make up the signal. 
+
+**Frequency domain**
+The frequency domain shows the specific frequencies that make up the signal. To view the
+frequency domain, a discrete fourier transform must be calculated for the signal. 
+
+**Float and complex representation**
+Sound waves can typically be represented using float values.
+
+Radio signals typically are represented by complex values called phasors. 
+
+## References
+xx. 2025. "Getting started with SDR."
+Wikipedia. 2026. "Trigonometry." https://en.wikipedia.org/wiki/Trigonometry#Trigonometric_ratios
+Byrne, Charles L. 2013. "Mathematics of Signal Processing: A First Course." https://faculty.uml.edu/cbyrne/sp1text.pdf
