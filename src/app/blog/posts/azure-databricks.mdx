@@ -1,0 +1,44 @@
+---
+title: "What to know about Azure Databricks"
+publishedAt: "2026-03-03"
+summary: "Overview of Azure Databricks for data engineers."
+tag: "Data engineering"
+---
+
+## About Azure Databricks
+Microsoft describes Azure Databricks as a unified, open analytics platform that is meant to be used for building, deploying, sharing, and maintaining enterprise-grade data, analytics, and AI solutions at scale. The service includes the Databricks Data Intelligence Platform (DDIP) which integrates with the cloud to handle related management and deployment
+
+Azure Databricks is a SAAS solution targetted towards enterprise clients. It is a comprehensive data service that can execute tasks related to processing, storing, and analyzing data. These areas of functionality can be broken into multiple areas applications:
+- Storage
+    - Data lakehouse
+    - Data governance and secure data sharing: Unity Catalog provides unified data governance
+    - Online transactional processing (OLTP) database integrated into the DDIP
+- Processing
+    - ETL and data engineering
+    - DevOps, CI/CD, and task orchestration
+- Analyzing
+    - ML, AI, and data science: Suite of tools provided for data science and ML needs
+    - Data warehousing, analytics, and BI: Scalable storage and compute for analytics
+    - Real-time and streaming analytics
+
+Generative AI is used in the data lakehouse to analyze data semantics.
+
+**Open Source projects created by Databricks employees**
+- Delta Lake, Delta Sharing
+- MLflow
+- Apache Spark, Structured Streaming
+- Redash
+- Unity Catalog
+
+## Data engineering with Databricks
+Data engineering is primarily done through Lakeflow within the Databricks system. Lakeflow is an end-to-end unified data engineering solution for ingestion, transformation, and orchestration of data. 
+
+**Lakeflow**
+- Lakeflow Connect: Connect Lakeflow to popular enterprise data sources; connectors can be managed or standard
+- Lakeflow Spark Declarative Pipelines (SDP): Declarative framework for building and managing batch and streaming data pipelines; automatically orchestrates execution of flows, sinks, streaming tables, and materialized views by encapsulating and running them as a pipeline
+- Lakeflow Jobs: Reliable orchestration and production monitoring for any data and AI workload; jobs consist of one or more tasks to be automated together
+
+
+## References
+Microsoft Learn. "What is Azure Databricks?" https://learn.microsoft.com/en-us/azure/databricks/introduction/
+Microsoft Learn. "Data engineering with Databricks." https://learn.microsoft.com/en-us/azure/databricks/data-engineering/
