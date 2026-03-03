@@ -1,0 +1,142 @@
+---
+title: "GCP Associate Data Practitioner Certification"
+publishedAt: "2026-03-03"
+summary: "Overview of the GCP Associate Data Practitioner certification, what it is, who it is for, and what it covers."
+tag: "Data engineering"
+---
+
+## What is the Associate Data Practitioner Certification
+The Associate Data Practitioner (ADP) is a entry level GCP certification for data engineers. It is oriented towards a professional who uses GCP for data tasks, such as:
+- Data ingestion
+- Data transformation
+- Data pipeline management
+- Data analysis
+- Machine learning
+- Data visualziation
+
+A basic understanding of cloud computing concepts is encouraged, such as IaaS, PaaS, and SaaS. The exam assesses the professionals ability to:
+- Manage data
+- Orchestrate data pipelines
+- Prepare and ingest data
+- Analyze and present data
+
+About the exam:
+- 2 hour time limit
+- 50-60 multiple choice and multiple select questions
+- $125 registration fee
+
+## Exam guide overview
+There are four sections of the exam:
+1. Data preparation and ingestion (30%)
+2. Data analysis and presentation (27%)
+3. Data pipeline orchestration (18%)
+4. Data management (25%)
+
+These are further broken down into subsections:
+
+**Data preparation and ingestion**
+1. Prepare and process data
+2. Extract and load data into appropriate Google Cloud storage systems
+
+**Data analysis and presentation**
+1. Identify data trends, patterns, and insights using BigQuery and Jupyter notebooks
+2. Visualize data and create dashboards in Looker, given business requirements
+3. Define, train, evaluate, and use ML models
+
+**Data pipeline orchestration**
+1. Design and implement simple data pipelines
+2. Schedule, automate, and monitor basic data processing tasks
+
+**Data management**
+1. Configure access control and governance
+2. Configure lifecycle management
+3. Identify high availability and disaster recovery strategies for data in Cloud Storage and Cloud SQL
+4. Apply security measures and ensure compliance with data privacy regulations
+
+Concepts to understand:
+- Data manipulation methodologies: ETL, ELT, ETLT
+- Data transfer types
+- Data quality and cleaning
+- Data formats: CSV, JSON, APache Parquet, Apache Avro, structured db tables
+- Data storage locations: Regional, dual-regional, multi-regional, zonal
+- Data use cases by data requirements: Structured, unstructured, semi-structured
+- ML project planning: Data collection, model training, model evaluation, prediction
+- SQL for creating, training, and evaluating models
+- Data pipeline types
+- Data access control and governance: Least privileged
+- Backup and recovery solutions, replication
+- Encryption in use, in transit, and at rest
+
+Tools to understand:
+- Data cleaning: Cloud Data Fusion, BigQuery, SQL, Dataflow
+- Data extraction: Dataflow, BigQuery Data Transfer Service, Database Migration Service, Cloud Data Fusion
+- Data storage: Cloud Storage, BigQuery, Cloud SQL, Firestore, Bigtable, Spanner
+- Data loading: gcloud and BQ CLI, Storage Transfer Service, BigQuery Data Transfer Service, client libraries, Pub/Sub
+- Data analysis and visualization: BigQuery, Colab Enterprise (Jupyter notebooks), Looker/Looker Studio/LookML
+- Machine learning: BigQuery ML training, evaluation, and inference; Auto ML; pretrained BigQuery; Model Registry
+- Data transformation: Dataproc, Dataflow, Cloud Data Fusion, Cloud Composer, Dataform
+- Data pipeline automation: BigQuery, Cloud Scheduler, Cloud Composer; Cloud Logging, Cloud Monitoring
+- Data orchestration: Cloud Composer, scheduled queries, Dataproc Workflow Templates, Workflows 
+- Eventarc triggers in event-driven pipelines
+- Data governance: Identity and Access Management (IAM) roles, Cloud Storage access control, Analytics Hub data sharing
+- Data lifecycle management: Cloud Storage classes based on frequency and retention, automated data removal with BigQuery, Cloud Storage
+- Primary and secondary data storage locations for data redundancy
+- Data privacy: customer-managed encryption keys (CMEK), customer-supplied encryption keys (CSEK), Google-managed encryption keys (GMEK); Cloud Key Management Service (Cloud KMS) to manage keys
+
+Tool list:
+- Analytics Hub
+    - Determine when to share data
+- Identify and Access Management (IAM)
+    - Establish principles of least privileged
+    - Differentiate between basic roles, predefined roles, and data service permissions
+- BigQuery
+    - Conduct data cleaning
+    - Extract data with BigQuery Data Transfer Service
+    - When to use as a storage solution
+    - Load data
+    - Generate reports and extract insights
+    - Understand ML and AutoML use cases
+    - Use pretrained LLMs using remote connection 
+    - Execute SQL to create, train, and evaluate ML models
+    - Perform inference using ML models
+    - Create and manage scheduled queries
+    - Use cases for event-driven data ingestion from Pub/Sub to BigQuery
+    - Create rules to delete objects automatically
+- Dataflow
+    - Conduct data cleaning
+    - Choose appropriate data extraction tool
+    - Select data transformation tool
+    - Monitor Dataflow pipeline progress using Dataflow job Unity
+    - Use Eventarc triggers in event-driven pipelines
+- Dataform
+    - Select a data transformation tool
+    - Use Eventarc triggers in event-driven pipelines
+- Dataproc
+    - Select a data transformation tool
+    - Dataproc Workflow Templates as a data orchestration solution
+- Database Migration Service
+- Cloud Storage
+    - Extract and load data into Cloud Storage systems
+    - Select the appropriate storage solution, data storage location type, and data format
+    - Load data using the appropriate tool: gcloud and BQ CLI, Storage Transfer Service, BigQuery Data Transfer Service, client libraries
+    - Use IAM for Cloud Storage
+    - Compare methods of access control: public or private, uniform access
+    - Determine appropriate Cloud Storage classes based on frequency and retention needs
+    - COmpare rules to delete data automatically
+    - Identify high availability and disaster recovery strategies
+- Cloud Data Fusion
+- Cloud Composer
+- Cloud Scheduler
+- Cloud Monitoring
+- Cloud Logging
+- Cloud SQL
+- Colab Enterprise
+    - Use Jupyter notebooks to analyze and visualize data
+- Looker
+    - Visualize and create dashboards
+    - Compare Looker and Looker Studio for different analytics use cases
+    - Manipulate LookML parameters to modify a data model
+
+## References
+Google Cloud. "Associate Data Practitioner." https://cloud.google.com/learn/certification/data-practitioner
+Google Cloud. "Associate Data Practitioner Exam Guide." https://services.google.com/fh/files/misc/v1.0_associate_data_practitioner_exam_guide_english.pdf
