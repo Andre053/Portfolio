@@ -87,11 +87,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Toronto-based technical professional who is passionate about using data and 
-        technology to make a positive impact on society. He has worked as a software 
-        engineer, cybersecurity analyst, systems administrator, and data analyst. Rooted in an
+        Toronto-based professional who is passionate about technology. He has worked as a cybersecurity analyst, software 
+        engineer, systems administrator, and data analyst. Rooted in an
         passion for technical understanding and politics, his interests lie in using technical skills 
-        to solve problems and advocate for solutions that champion the public good. 
+        to solve problems and advocate for solutions that champion the public good.
       </>
     ),
   },
@@ -186,11 +185,11 @@ const about: About = {
   },
   studies: {
     display: true,
-    title: "Education",
+    title: "Education and Certifications",
     institutions: [
       {
         name: "University of Toronto, School of Cities",
-        description: <>Microcredential in Urban Data Analysis and Visualization (in progress).</>,
+        description: <>Microcredential in Urban Data Analysis and Visualization.</>,
       },
       {
         name: "Toronto Metropolitan University",
@@ -205,8 +204,12 @@ const about: About = {
         description: <>Certificate course in international human rights law and freedom of expression.</>,
       },
       {
-        name: "CompTIA",
-        description: <>Certified with CompTIA A+, Network+, and Security+.</>,
+        name: "CompTIA Certified",
+        description: <>CompTIA A+, Network+, and Security+.</>,
+      },
+      {
+        name: "Microsoft Certified",
+        description: <>Azure Fundamentals (AZ-900), Security, Compliance, and Identity Fundamentals (SC-900) (in progress)</>,
       },
     ],
   },
@@ -214,6 +217,43 @@ const about: About = {
     display: true, 
     title: "Tools",
     skills: [
+      {
+        title: "Cybersecurity",
+        description: (
+          <>Hardening the security of networks, applications, and cloud services. Investigating and responding to incidents. Building secure infrastructures.</>
+        ),
+        tags: [
+          {
+            name: "Microsoft Entra ID",
+          },
+          {
+            name: "Cisco Meraki",
+          },
+          {
+            name: "FortiGate",
+          },
+          {
+            name: "FortiSIEM",
+          },
+          {
+            name: "FortiSOAR",
+          },
+          {
+            name: "Tenable Nessus",
+          },
+          {
+            name: "Kali Linux",
+          },
+          {
+            name: "pfSense",
+          },
+          {
+            name: "KnowBe4",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
       {
         title: "Data Science",
         description: (
