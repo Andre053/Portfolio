@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "André",
   lastName: "de Biasi",
   name: `André de Biasi`,
-  role: "Data Scientist | Software Engineer | IT Admin",
+  role: "Security Engineer | Data Scientist | Software Engineer",
   avatar: "/images/avatar.jpg",
   email: "andre.debiasi053@gmail.com",
   location: "America/Toronto", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -61,7 +61,7 @@ const home: Home = {
   subline: (
     <>
       I'm André, I currently work as an IT Technician at The Canadian Press where I support users with technical issues and write software.
-      <br /><br />After hours, I am studying and working on projects at the intersection between data science, social policy, and commuity advocacy.
+      <br /><br />After hours, I am studying and working on projects at the intersection between cybersecurity, data science, public policy, and commuity advocacy.
     </>
   ),
 };
