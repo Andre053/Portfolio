@@ -137,6 +137,183 @@ Tool list:
     - Compare Looker and Looker Studio for different analytics use cases
     - Manipulate LookML parameters to modify a data model
 
+## Self-study
+**BigQuery**
+Fully managed PaaS solution to manage and analyze data.
+- Built-in features include ML, search, geospatial analysis, BI
+- Uses a serverless architecture, no infrastructure management needed
+- Works with structured and unstructured data, supports open table formats
+- BigQuery streaming supports continuous data ingestion and analysis
+- Has a scalable, distributed analysis engine for querying and analytics needs 
+- Built-in data governance, features like: semantic search, data lineage; Dataplex Universal Catalog is the central governance solution
+- Architecture in 2 parts
+    - Storage layer: ingests, stores, and optimizes data
+    - Compute layer: analytics capabilities
+
+BigQuery storage:
+- Data in BigQuery is stored in a columnar format optimized for analytical queries
+- Data presented in tables, rows, and columns; full support for ACID semantics
+- Automatically replicated across locations to provide high availability
+
+BigQuery analytics:
+- Descriptive and prescriptive analysis: BI, ad hoc, geospatial, and ML
+
+BigQuery administration:
+- BigQuery provides centralized management of data and compute
+- IAM helps secure resources with the access model used throughout Google Cloud
+
+**Google Cloud Storage**
+Service for storing data objects in Google Cloud. 
+- Hierarchy: Organization > Project > Bucket > Folder > Object
+    - Objects are defined as immutable data of any format
+    - Objects are stored in containers called buckets
+    - Can optionally organize objects in buckets into folders
+    - All buckets are associated with a project
+    - Projects can be grouped under an organization
+- Every project, bucket, managed folder, and object is a resource
+
+Cloud Storage tools:
+- Console: Visual interface to manage Cloud Storage data in a browser
+- gcloud CLI: Interact with Cloud Storage through a terminal using gcloud storage commands
+- Client libraries: Allow data management using your preferred programming language
+- REST APIs: Manage data using the JSON or XML API
+- Terraform: Provision Cloud Storage infrastructure using IaC
+- gRPC: Interact with Cloud Storage and define services using Protocol Buffers
+- Cloud Storage FUSE: Mount Cloud Storage buckets to your local file system
+
+Cloud Storage security:
+- IAM
+- Data encryption
+- Authentication
+- Soft delete
+- Object versioning
+- Bucket IP Filtering
+- Bucket Lock
+
+**Dataflow**
+Service providing a unified stream and batch data processing at scale. 
+- Create data pipelines to read data from sources, transform data, and write data to a destination
+
+Typical use cases:
+- Data movement
+- ETL
+- Backend support for BI dashboards
+- Real-time ML analysis of streaming data
+- Sensor data processing or log data processing at scale
+
+Data processing features:
+- Fully managed data processing
+- Scalable batch and streaming pipelines
+- Pipelines are portable, built with Apache Beam
+- Data pipeline development is flexible, from straightforward use cases to advanced applications
+- Provides monitoring of data pipeline jobs
+
+Job types:
+- Runner: Job of running the pipeline on a specific platform
+
+Typical ETL and BI solution using Dataflow and other Google Cloud services:
+1. Pub/Sub ingests data from an external system
+2. Dataflow reads data from Pub/Sub, writes it to BigQuery; Dataflow might transform or aggregate the data
+3. BigQuery acts as a data warehouse, allows for ad hoc querying of the data
+4. Looker provides real-time BI insights from the data stored in BigQuery
+
+**Looker**
+
+**Pub/Sub**
+
+## Study: YouTube - Google ADP Crash Course
+
+**GCP overview**
+Main services
+- Compute services
+    - VMs for traditional workloads (IaaS)
+    - App Engine to upload code to (PaaS)
+    - Container support through Cloud Run, container orchestration with Google Kubernetes Engine
+    - Cloud Functions for event-driven, serverless computing
+- Storage options
+    - Object storage through Cloud Storage which has 4 classes: Standard, Nearline, Coldline, and Archive
+    - Filestore provides NFS-compatible file shares
+- Database solutions
+    - Cloud SQL manages MySQL, PostgreSQL, and Microsoft SQL Server
+    - NoSQL options through Bigtable, Firestore, and Firebase Realtime Database
+    - Cloud Spanner combines scalability with relational features
+    - BigQuery is a powerful data warehouse
+- Networking
+    - Virtual Private Cloud connects resources securely
+    - Cloud VPN or Cloud Interconnect for secure connections to on-prem
+
+**Regions**
+- Data centre location
+- Closer proximity should improve performance
+
+
+
+## Study: Google Learning Path
+**Role of a data engineer**
+- At a basic level, data engineers build data pipelines
+    - Pipelines allow data to get to a place where data-driven decisions can be made
+    - Raw data is not useful until processed
+- Main tasks
+    - Ingestion and storage: Get the data to where it can be useful
+    - Data transformation: Get the data into a usable condition
+    - Data provisioning and enrichment: Add new value to the data
+    - Security, privacy, discovery, governance: Manage the data
+    - Pipeline monitoring and automation: Productionize data processes
+- Data pipeline
+    - Replicate and migrate: Transfer data into GCP
+    - Ingest: Raw data made available as a data source
+    - Transform: Process data using EL, ELT, or ETL tools
+    - Store: Processed data made available in a data sink
+
+**Data source vs. data sink**
+- Interstage of a data pipeline, where data becomes a data source
+- Data source is raw, unprocessed, but available to be used
+- Any platform that stores data can be a data source
+    - Cloud Storage
+    - Pub/Sub: Async messaging system
+- Data sink, where processed data is stored and available
+    - BigQuery: Serverless data warehouse
+    - BigTable: Scalable NoSQL database
+
+**Data formats**
+- Unstructured: Documents, images, audio files
+- Structured: Tables with rows and columns
+
+**GCP storage solutions**
+- Unstructured data uses Cloud Storage 
+    - Benefits
+        - Reliability and scalability
+        - Accessed by HTTP request
+        - Retrieved by object name
+        - Max object size of 5 TB
+    - Provides 4 data storage types
+        - Standard (real-time access)
+        - Nearline (monthly access)
+        - Coldline (quarterly access)
+        - Archive (yearly access)
+- Many structured data storage services
+    - Cloud SQL: Managed RDBS
+    - AlloyDB: PostgreSQL service
+    - Spanner: Fully-managed RDBS
+    - Firestore: Fully-managed serverless NoSQL database
+    - BigQuery: Fully-manged serverless 
+    - BigTable: Fully-manged serverless table service
+- Cloud storage service types
+    - Data lake: Stores raw data for future data use
+        - Relies on other tools to enable higher level functions
+        - Ex. Cloud Storage
+    - Data warehouse: Stores pre-processed data from multiple data sources
+        - Standalone service, allows for long-term business analysis 
+        - Ex. BigQuery
+- BigQuery: Serverless, fully managed data warehouse
+
+
+
 ## References
 Google Cloud. "Associate Data Practitioner." https://cloud.google.com/learn/certification/data-practitioner
 Google Cloud. "Associate Data Practitioner Exam Guide." https://services.google.com/fh/files/misc/v1.0_associate_data_practitioner_exam_guide_english.pdf
+Google Cloud. "Associate Data Practitioner Learning Path." https://www.skills.google/paths/1336
+Google Cloud. "BigQuery overview." https://docs.cloud.google.com/bigquery/docs/introduction 
+Google Cloud. "Dataflow overview." https://docs.cloud.google.com/dataflow/docs/overview
+Google Cloud. "Product overview of Cloud Storage." https://docs.cloud.google.com/storage/docs/introduction
+YouTube. "Google Associate Data Practitioner Full Crash Course." https://www.youtube.com/watch?v=l9WYMxORkRY&list=PLAkmEquH84DuR3HOzub0j-TfFOoZ-__PX
